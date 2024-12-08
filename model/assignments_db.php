@@ -17,7 +17,7 @@
         return $statment;
     }
 
-    function delete_assignment($assignmentId){
+    function deleteAssignment($assignmentId){
         global $db;
         
         $query = 'DELETE FROM assignments WHERE ID = :assignment_id';
@@ -27,7 +27,7 @@
         $statment->closeCursor();
     }
 
-    function add_assignment($courseId, $description){
+    function addAssignment($courseId, $description){
         global $db;
 
         $query = 'INSERT INTO assignments (Description, courseID) VALUES (:description, :courseID)';
