@@ -8,7 +8,7 @@
                 <option value="0"> View All <option>
                 <?php foreach ($courses as $course) : ?>
                 <?php if ($courseId = $course['courseID']) {?>
-                    <option value="<?= $course['courseID']?>" selected> 
+                    <option value="<?= $course['courseID']?>"> 
                 <?php } else { ?>
                     <option value="<?= $course['courseID']?>"> 
                 <?php } ?>

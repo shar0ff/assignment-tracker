@@ -28,7 +28,7 @@
     <h2> Add Course </h2>
     <form action="." method="post" id="add__form" class="add_form">
         <input type="hidden" name="action" value="add_course">
-        <div class="add_inputs">
+        <div class="add__inputs">
             <label> Name : </label>
             <input type="text" name="course_name" maxlength="50" plaseholder="Name" autofocus required>
         </div>
