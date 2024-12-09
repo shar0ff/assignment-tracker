@@ -3,28 +3,29 @@
         global $db;
 
         if ($courseId){
-            $query = 'SELECT A.ID, A.Dscription, C.courseName FROM assignments A LEFT JOIN 
+            $query = 'SELECT A.ID, A.Description, C.courseName FROM assignments A LEFT JOIN 
             courses C ON A.courseID = C.courseID WHERE A.courseID = :course_id ORDER BY A.ID';
+            $statement = $db->prepare($query);
+            $statement->bindValue(':course_id', $courseId);
         }else{
-            $query = 'SELECT A.ID, A.Dscription, C.courseName FROM assignments A LEFT JOIN 
+            $query = 'SELECT A.ID, A.Description, C.courseName FROM assignments A LEFT JOIN 
             courses C ON A.courseID = C.courseID ORDER BY C.courseID';
+            $statement = $db->prepare($query);
         }
-        $statment = $db->prepare($query);
-        $statment->bindValue(':course_id', $courseId);
-        $statment->execute();
-        $assignments = $statment->fetchAll();
-        $statment->closeCursor();
-        return $statment;
+        $statement->execute();
+        $assignments = $statement->fetchAll();
+        $statement->closeCursor();
+        return $assignments;
     }
 
     function deleteAssignment($assignmentId){
         global $db;
         
         $query = 'DELETE FROM assignments WHERE ID = :assignment_id';
-        $statment = $db->prepare($query);
-        $statment->bindValue(':assignment_id', $assignmentId);
-        $statment->execute();
-        $statment->closeCursor();
+        $statement = $db->prepare($query);
+        $statement->bindValue(':assignment_id', $assignmentId);
+        $statement->execute();
+        $statement->closeCursor();
     }
 
     function addAssignment($courseId, $description){
@@ -32,10 +33,10 @@
 
         $query = 'INSERT INTO assignments (Description, courseID) VALUES (:description, :courseID)';
 
-        $statment = $db->prepare($query);
-        $statment->bindValue(':description', $description);
-        $statment->bindValue(':courseID', $courseID);
-        $statment->execute();
-        $statment->closeCursor();
+        $statement = $db->prepare($query);
+        $statement->bindValue(':description', $description);
+        $statement->bindValue(':courseID', $courseID);
+        $statement->execute();
+        $statement->closeCursor();
     }
 ?>

@@ -1,5 +1,5 @@
 <?php 
-    $dsn = 'msql:host = localhost; dbame = assignment_tracker';
+    $dsn = 'mysql:host=localhost;dbname=assignment_tracker';
     $username = 'root';
     // $password = '';
 

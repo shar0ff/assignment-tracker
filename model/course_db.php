@@ -4,10 +4,10 @@
 
         $query = 'SELECT * FROM courses ORDER BY courseID';
 
-        $statment = $db->prepare($query);
-        $statment->execute();
-        $courses = $statment->fetchAll();
-        $statment->closeCursor();
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $courses = $statement->fetchAll();
+        $statement->closeCursor();
         return $courses;
     }
 
@@ -19,11 +19,11 @@
         }
 
         $query = 'SELECT * FROM courses WHERE courseID = :courseId';
-        $statment = $db->prepare($query);
-        $statment->bindValue(':courseId', $courseId);
-        $statment->execute();
-        $course = $statment->fetch();
-        $statment->closeCursor();
+        $statement = $db->prepare($query);
+        $statement->bindValue(':courseId', $courseId);
+        $statement->execute();
+        $course = $statement->fetch();
+        $statement->closeCursor();
         $courseName = $course['courseName'];
         return $courseName;
     }
@@ -32,19 +32,19 @@
         global $db;
 
         $query = 'DELETE * FROM courses WHERE courseID = :courseId';
-        $statment = $db->prepare($query);
-        $statment->bindValue(':courseId', $courseId);
-        $statment->execute();
-        $statment->closeCursor();
+        $statement = $db->prepare($query);
+        $statement->bindValue(':courseId', $courseId);
+        $statement->execute();
+        $statement->closeCursor();
     }
 
     function addCourse($courseName){
         global $db;
 
         $query = 'INSERT INTO courses (courseName) VALUES (:courseName)';
-        $statment = $db->prepare($query);
-        $statment->bindValue(':courseName', $courseName);
-        $statment->execute();
-        $statment->closeCursor();
+        $statement = $db->prepare($query);
+        $statement->bindValue(':courseName', $courseName);
+        $statement->execute();
+        $statement->closeCursor();
     }
 ?>
