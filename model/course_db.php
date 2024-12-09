@@ -31,7 +31,7 @@
     function deleteCourse($courseId){
         global $db;
 
-        $query = 'DELETE * FROM courses WHERE courseID = :courseId';
+        $query = 'DELETE FROM courses WHERE courseID = :courseId';
         $statement = $db->prepare($query);
         $statement->bindValue(':courseId', $courseId);
         $statement->execute();

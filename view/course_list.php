@@ -12,7 +12,7 @@
                 </div>
                 <div class="list__removeItem">
                     <form action="." method="post">
-                        <input type="hiden" name="action" value="delete_course">
+                        <input type="hidden" name="action" value="delete_course">
                         <input type="hidden" name="course_id" value="<?= $course['courseID']?>">
                         <button class="remove-button">❌</button>
                     </form>
@@ -38,5 +38,5 @@
     </form>
 </section>
 <br>
-<p><a href=".">View $amp; Add Assignments</a></p>
+<p><a href=".">View &amp; Add Assignments</a></p>
 <?php include('view/footer.php')?>

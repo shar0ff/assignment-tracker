@@ -24,7 +24,7 @@
         <div class="list__row">
             <div class="list__item">
                 <p class="bold"><?= $assignment['courseName'] ?></p>
-                <p><?= $assignment['Decsription'] ?></p>
+                <p><?= $assignment['Description'] ?></p>
             </div>
             <div class="list__removeItem"> 
                 <form action="." method="post">

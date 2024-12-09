@@ -35,7 +35,7 @@
 
         $statement = $db->prepare($query);
         $statement->bindValue(':description', $description);
-        $statement->bindValue(':courseID', $courseID);
+        $statement->bindValue(':courseID', $courseId);
         $statement->execute();
         $statement->closeCursor();
     }
